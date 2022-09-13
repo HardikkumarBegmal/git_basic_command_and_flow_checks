@@ -2,10 +2,21 @@ package com.example.demoapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import com.example.demoapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    var binding : ActivityMainBinding? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
+//        setContentView(R.layout.activity_main)
+
+        binding?.button?.setOnClickListener {
+            Toast.makeText(this, "Button Pressed", Toast.LENGTH_LONG).show()
+        }
     }
 }
